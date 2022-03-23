@@ -1,0 +1,8 @@
+az deployment sub create --template-file "C:\Users\tiffa\Documents\chatbot_prueba\ricardo\deploymentTemplates\template-with-new-rg.json" --location westus2 --parameters appType="UserAssignedMSI" appId="106359e9-e26c-4e58-a051-e8ff63f64ec7" tenantId="106359e9-e26c-4e58-a051-e8ff63f64ec7" existingUserAssignedMSIName="vanguardia" existingUserAssignedMSIResourceGroupName="contenido" botId="vanguardia" botSku=S1 newAppServicePlanName="vanguardiabot" newWebAppName="tshirtbot" groupName="contenido" groupLocation="westus2" newAppServicePlanLocation="westus2" --name "tshirtbot"
+
+az deployment group create --resource-group "contenido" --template-file "C:\Users\tiffa\Documents\chatbot_prueba\ricardo\deploymentTemplates\template-with-new-rg.json" --parameters appId="106359e9-e26c-4e58-a051-e8ff63f64ec7" appType="UserAssignedMSI" tenantId="106359e9-e26c-4e58-a051-e8ff63f64ec7" existingUserAssignedMSIName="vanguardia" existingUserAssignedMSIResourceGroupName="contenido" botId="106359e9-e26c-4e58-a051-e8ff63f64ec7" newWebAppName="tshirtbot" newAppServicePlanName="vanguardiabot" appServicePlanLocation="West US 2" --name "tshirtbot"
+
+
+
+az keyvault create --enabled-for-template-deployment true --name "vaulttshirt" --resource-group "contenido"
+az keyvault secret set --vault-name "vaulttshirt" --name "secrettshirtbot" --value "prueba"
